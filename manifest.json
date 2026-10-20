@@ -1,6 +1,6 @@
 {
-  "description": "Dream Visuals App",
-  "background_color": "#24adc4",
+  "background_color": "#ffffff",
+  "description": "Мій крутий застосунок DreamVisuals",
   "dir": "ltr",
   "display": "standalone",
   "name": "DreamVisuals",
@@ -8,6 +8,7 @@
   "scope": "/",
   "short_name": "DreamVisuals",
   "start_url": "/",
-  "theme_color": "rgb(77, 73, 112)",
-  "id": "com.dreamvisuals.app"
+  "theme_color": "#ffffff",
+  "id": "com.dreamvisuals.app",
+  "lang": "uk"
 }
