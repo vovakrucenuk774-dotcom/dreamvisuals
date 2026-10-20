@@ -1,13 +1,10 @@
 {
-  "background_color": "#ffffff",
-  "description": "Зручний та сучасний додаток DreamVisuals для перегляду та створення візуального контенту.",
-  "dir": "ltr",
+  "name": "Dreamvisuals",
+  "short_name": "Dreamvisuals",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "name": "DreamVisuals",
-  "orientation": "any",
-  "scope": "/",
-  "short_name": "DreamVisuals",
-  "start_url": "/",
-  "theme_color": "#ffffff",
+  "background_color": "#2EC6FE",
+  "theme_color": "#8936FF",
   "id": "com.dreamvisuals.app"
 }
