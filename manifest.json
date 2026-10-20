@@ -1,6 +1,6 @@
-"description": "Dream Visuals App",
+{
+  "description": "Dream Visuals App",
   "background_color": "#24adc4",
- 
   "dir": "ltr",
   "display": "standalone",
   "name": "DreamVisuals",
