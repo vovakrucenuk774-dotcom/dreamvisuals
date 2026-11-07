@@ -4,114 +4,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DreamVisuals</title>
+<title>DreamVisuals 3.0</title>
 <style>
-* { box-sizing:border-box }
-body {
- margin:0;
- padding:25px 15px;
- background:#090711;
- color:white;
- font-family:Arial,sans-serif;
- text-align:center;
+*{box-sizing:border-box}
+body{
+ margin:0;background:#090711;color:white;
+ font-family:Arial,sans-serif;padding:18px;
 }
-h1 { color:#d18aff; text-shadow:0 0 20px #a855f7 }
-.card {
- max-width:500px;
- margin:22px auto;
- padding:25px;
- background:#1b1429;
- border:1px solid #a855f7;
- border-radius:22px;
- box-shadow:0 0 20px #7c3aed44;
+header{text-align:center;padding:20px 0}
+h1{color:#d18aff;font-size:32px;text-shadow:0 0 20px #a855f7}
+.card{
+ background:#1b1429;border:1px solid #a855f7;
+ border-radius:20px;padding:20px;margin:15px auto;
+ max-width:520px;box-shadow:0 0 18px #7c3aed33;
 }
-button {
- margin:7px;
- padding:14px 18px;
- color:white;
- background:#7028c9;
- border:0;
- border-radius:12px;
- font-size:16px;
- cursor:pointer;
+button{
+ background:#7028c9;color:white;border:0;
+ padding:13px;border-radius:12px;margin:5px;
+ font-size:15px;cursor:pointer;
 }
-button:active { background:#a855f7 }
-.page { display:none }
-.page.active { display:block }
-.menu {
- display:flex;
- flex-wrap:wrap;
- justify-content:center;
- gap:8px;
-}
-.small { color:#c8b4dc }
+button:active{background:#a855f7}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.menu button{width:100%;margin:0}
+.page{display:none;max-width:520px;margin:auto}
+.page.active{display:block}
+p{color:#d7c6e8}
+input{accent-color:#a855f7}
+input[type=text]{padding:12px;width:100%;border-radius:10px;border:0}
+.item{padding:12px;border-bottom:1px solid #49345f}
+.back{background:#49345f}
 </style>
 </head>
 <body>
 
+<header>
 <h1>✦ DREAMVISUALS</h1>
-<p>NEON LAUNCHER</p>
+<p>NEON LAUNCHER 3.0</p>
+</header>
 
 <div id="home" class="page active">
- <div class="card">
-  <h2>Привіт! 💜</h2>
-  <p>Твій цифровий простір</p>
-  <button onclick="showPage('launch')">🚀 Запустити</button>
- </div>
-
- <div class="card">
-  <h2>📱 Програми</h2>
-  <div class="menu">
-   <button onclick="showPage('music')">🎵 Музика</button>
-   <button onclick="showPage('games')">🎮 Ігри</button>
-   <button onclick="showPage('gallery')">🌌 Галерея</button>
-   <button onclick="showPage('settings')">⚙️ Налаштування</button>
-  </div>
- </div>
+<div class="card">
+<h2>Привіт, гравцю! 💜</h2>
+<p>Ласкаво просимо до DreamVisuals</p>
+<button onclick="show('profile')">👤 Мій профіль</button>
+<button onclick="show('games')">🚀 Ігрова бібліотека</button>
+</div>
+<div class="card">
+<h2>Меню лаунчера</h2>
+<div class="menu">
+<button onclick="show('visuals')">🎨 Visuals</button>
+<button onclick="show('cosmetics')">⚔️ Cosmetics</button>
+<button onclick="show('games')">🎮 Ігри</button>
+<button onclick="show('settings')">⚙️ Налаштування</button>
+</div>
+</div>
+<div class="card">
+<h3>💎 DreamVisuals News</h3>
+<p>Версія 3.0 доступна!</p>
+<p>Твій цифровий ігровий простір.</p>
+</div>
 </div>
 
-<div id="launch" class="page card">
- <h2>🚀 Запуск</h2>
- <p>Minecraft DreamVisuals</p>
- <p class="small">Відкрий MJLauncher на своєму телефоні, щоб запустити Minecraft.</p>
- <button onclick="showPage('home')">Назад</button>
+<div id="profile" class="page card">
+<h2>👤 Профіль</h2>
+<label>Твій Minecraft нік</label>
+<input id="nickname" type="text" placeholder="Введи свій нік">
+<button onclick="saveNick()">Зберегти</button>
+<p id="savedNick"></p>
+<button class="back" onclick="show('home')">Назад</button>
 </div>
 
-<div id="music" class="page card">
- <h2>🎵 Музика</h2>
- <p>Музичний розділ DreamVisuals</p>
- <p class="small">Тут буде твій музичний плеєр.</p>
- <button onclick="showPage('home')">Назад</button>
+<div id="visuals" class="page card">
+<h2>🎨 Visual Settings</h2>
+<div class="item">Синя тема <input type="checkbox" id="blue"></div>
+<div class="item">Неонове оформлення <input type="checkbox" id="neon" checked></div>
+<div class="item">Анімації меню <input type="checkbox" id="animations" checked></div>
+<div class="item">Компактне меню <input type="checkbox" id="compact"></div>
+<button onclick="saveVisuals()">Зберегти</button>
+<p id="visualStatus"></p>
+<button class="back" onclick="show('home')">Назад</button>
+</div>
+
+<div id="cosmetics" class="page card">
+<h2>⚔️ Cosmetics</h2>
+<p>Вибери стиль оформлення:</p>
+<div class="item"><label><input type="radio" name="sword" value="Original" checked> Original Sword</label></div>
+<div class="item"><label><input type="radio" name="sword" value="Dream Blue"> Dream Blue</label></div>
+<div class="item"><label><input type="radio" name="sword" value="Neon Purple"> Neon Purple</label></div>
+<div class="item"><label><input type="radio" name="sword" value="Crystal"> Crystal</label></div>
+<button onclick="saveSword()">Зберегти стиль</button>
+<p id="swordStatus"></p>
+<button class="back" onclick="show('home')">Назад</button>
 </div>
 
 <div id="games" class="page card">
- <h2>🎮 Ігри</h2>
- <p>Твоя ігрова бібліотека</p>
- <button onclick="showPage('home')">Назад</button>
-</div>
-
-<div id="gallery" class="page card">
- <h2>🌌 Галерея</h2>
- <p>Галерея DreamVisuals</p>
- <button onclick="showPage('home')">Назад</button>
+<h2>🎮 Ігрова бібліотека</h2>
+<div class="item">Minecraft Java Edition</div>
+<div class="item">DreamVisuals Collection</div>
+<p>Для запуску Minecraft відкрий MJLauncher.</p>
+<button onclick="show('home')">Назад</button>
 </div>
 
 <div id="settings" class="page card">
- <h2>⚙️ Налаштування</h2>
- <p>Тема: Neon Purple 💜</p>
- <p>Версія: 2.0</p>
- <button onclick="showPage('home')">Назад</button>
+<h2>⚙️ Налаштування</h2>
+<p>DreamVisuals Version 3.0</p>
+<p>Платформа: Android</p>
+<p>Дизайн: Neon Purple</p>
+<button onclick="clearData()">Скинути налаштування</button>
+<button class="back" onclick="show('home')">Назад</button>
 </div>
 
 <script>
-function showPage(id) {
- document.querySelectorAll('.page').forEach(page => {
-  page.classList.remove('active');
- });
+function show(id){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
  document.getElementById(id).classList.add('active');
  window.scrollTo(0,0);
 }
+function saveNick(){
+ let n=document.getElementById('nickname').value.trim();
+ if(!n){alert('Введи нік!');return;}
+ localStorage.setItem('dreamNick',n);
+ document.getElementById('savedNick').textContent='Збережено: '+n;
+}
+function saveVisuals(){
+ ['blue','neon','animations','compact'].forEach(id=>{
+ localStorage.setItem('dv_'+id,document.getElementById(id).checked);
+ });
+ document.getElementById('visualStatus').textContent='Налаштування збережено!';
+}
+function saveSword(){
+ let s=document.querySelector('input[name="sword"]:checked').value;
+ localStorage.setItem('dreamSword',s);
+ document.getElementById('swordStatus').textContent='Обрано: '+s;
+}
+function clearData(){
+ if(confirm('Скинути всі налаштування DreamVisuals?')){
+ localStorage.clear();
+ location.reload();
+ }
+}
+window.onload=function(){
+ let n=localStorage.getItem('dreamNick');
+ if(n){
+ document.getElementById('nickname').value=n;
+ document.getElementById('savedNick').textContent='Збережено: '+n;
+ }
+ ['blue','neon','animations','compact'].forEach(id=>{
+ let v=localStorage.getItem('dv_'+id);
+ if(v!==null)document.getElementById(id).checked=v==='true';
+ });
+ let s=localStorage.getItem('dreamSword');
+ if(s){
+ let el=document.querySelector('input[name="sword"][value="'+s+'"]');
+ if(el)el.checked=true;
+ }
+};
 </script>
-
 </body>
 </html>
