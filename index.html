@@ -178,5 +178,25 @@ window.onload=function(){
  }
 };
 </script>
+ function saveEditor() {
+  ['blueTheme', 'glow', 'rgb'].forEach(id => {
+    const element = document.getElementById(id);
+    if (element) {
+      localStorage.setItem('dv_' + id, element.checked);
+    }
+  });
+
+  ['hud', 'scale'].forEach(id => {
+    const element = document.getElementById(id);
+    if (element) {
+      localStorage.setItem('dv_' + id, element.value);
+    }
+  });
+
+  const status = document.getElementById('editorStatus');
+  if (status) {
+    status.textContent = '✅ Налаштування збережено!';
+  }
+}
 </body>
 </html>
