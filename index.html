@@ -1,58 +1,117 @@
 
 <!DOCTYPE html>
 <html lang="uk">
-<link rel="manifest" href="manifest.json">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dreamvisuals Launcher</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: #090711;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 30px 15px;
-      box-sizing: border-box;
-    }
-    h1 {
-      color: #d18aff;
-      text-shadow: 0 0 20px #a855f7;
-      margin-top: 60px;
-    }
-    .card {
-      margin: 20px auto;
-      max-width: 350px;
-      padding: 20px;
-      background: #1b1429;
-      border: 1px solid #a855f7;
-      border-radius: 20px;
-      box-shadow: 0 0 20px #7c3aed44;
-    }
-    button {
-      margin: 6px;
-      padding: 13px;
-      color: white;
-      background: #7028c9;
-      border: 0;
-      border-radius: 12px;
-    }
-  </style>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DreamVisuals</title>
+<style>
+* { box-sizing:border-box }
+body {
+ margin:0;
+ padding:25px 15px;
+ background:#090711;
+ color:white;
+ font-family:Arial,sans-serif;
+ text-align:center;
+}
+h1 { color:#d18aff; text-shadow:0 0 20px #a855f7 }
+.card {
+ max-width:500px;
+ margin:22px auto;
+ padding:25px;
+ background:#1b1429;
+ border:1px solid #a855f7;
+ border-radius:22px;
+ box-shadow:0 0 20px #7c3aed44;
+}
+button {
+ margin:7px;
+ padding:14px 18px;
+ color:white;
+ background:#7028c9;
+ border:0;
+ border-radius:12px;
+ font-size:16px;
+ cursor:pointer;
+}
+button:active { background:#a855f7 }
+.page { display:none }
+.page.active { display:block }
+.menu {
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:center;
+ gap:8px;
+}
+.small { color:#c8b4dc }
+</style>
 </head>
 <body>
-  <h1>✦ DREAMVISUALS</h1>
-  <p>NEON LAUNCHER</p>
-  <div class="card">
-    <h2>Привіт! 💜</h2>
-    <p>Твій цифровий простір</p>
-    <button onclick="alert('Ласкаво просимо!')">Запустити</button>
+
+<h1>✦ DREAMVISUALS</h1>
+<p>NEON LAUNCHER</p>
+
+<div id="home" class="page active">
+ <div class="card">
+  <h2>Привіт! 💜</h2>
+  <p>Твій цифровий простір</p>
+  <button onclick="showPage('launch')">🚀 Запустити</button>
+ </div>
+
+ <div class="card">
+  <h2>📱 Програми</h2>
+  <div class="menu">
+   <button onclick="showPage('music')">🎵 Музика</button>
+   <button onclick="showPage('games')">🎮 Ігри</button>
+   <button onclick="showPage('gallery')">🌌 Галерея</button>
+   <button onclick="showPage('settings')">⚙️ Налаштування</button>
   </div>
-  <div class="card">
-    <h3>📱 Програми</h3>
-    <p>🎵 Музика　 🎮 Ігри</p>
-    <p>🌌 Галерея　 ⚙️ Налаштування</p>
-  </div>
+ </div>
+</div>
+
+<div id="launch" class="page card">
+ <h2>🚀 Запуск</h2>
+ <p>Minecraft DreamVisuals</p>
+ <p class="small">Відкрий MJLauncher на своєму телефоні, щоб запустити Minecraft.</p>
+ <button onclick="showPage('home')">Назад</button>
+</div>
+
+<div id="music" class="page card">
+ <h2>🎵 Музика</h2>
+ <p>Музичний розділ DreamVisuals</p>
+ <p class="small">Тут буде твій музичний плеєр.</p>
+ <button onclick="showPage('home')">Назад</button>
+</div>
+
+<div id="games" class="page card">
+ <h2>🎮 Ігри</h2>
+ <p>Твоя ігрова бібліотека</p>
+ <button onclick="showPage('home')">Назад</button>
+</div>
+
+<div id="gallery" class="page card">
+ <h2>🌌 Галерея</h2>
+ <p>Галерея DreamVisuals</p>
+ <button onclick="showPage('home')">Назад</button>
+</div>
+
+<div id="settings" class="page card">
+ <h2>⚙️ Налаштування</h2>
+ <p>Тема: Neon Purple 💜</p>
+ <p>Версія: 2.0</p>
+ <button onclick="showPage('home')">Назад</button>
+</div>
+
+<script>
+function showPage(id) {
+ document.querySelectorAll('.page').forEach(page => {
+  page.classList.remove('active');
+ });
+ document.getElementById(id).classList.add('active');
+ window.scrollTo(0,0);
+}
+</script>
+
 </body>
-    </html>
-    
+</html>
