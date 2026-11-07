@@ -65,7 +65,34 @@ input[type=text]{padding:12px;width:100%;border-radius:10px;border:0}
 </div>
 </div>
 
-<div id="profile" class="page card">
+<div id="visuals" class="page card">
+<h2>🎨 Visuals Editor</h2>
+
+<p>Blue Neon Theme</p>
+<input type="checkbox" id="blueTheme" checked>
+
+<p>✨ Glow Effects</p>
+<input type="checkbox" id="glow" checked>
+
+<p>🌈 RGB Interface</p>
+<input type="checkbox" id="rgb">
+
+<p>🎯 HUD Style</p>
+<select id="hud">
+<option>Classic</option>
+<option>Modern</option>
+<option>Neon</option>
+</select>
+
+<p>Розмір інтерфейсу</p>
+<input type="range" id="scale" min="80" max="120" value="100">
+
+<br><br>
+<button onclick="saveEditor()">💾 Зберегти</button>
+<p id="editorStatus"></p>
+
+<button onclick="show('home')">Назад</button>
+</div>
 <h2>👤 Профіль</h2>
 <label>Твій Minecraft нік</label>
 <input id="nickname" type="text" placeholder="Введи свій нік">
@@ -74,16 +101,7 @@ input[type=text]{padding:12px;width:100%;border-radius:10px;border:0}
 <button class="back" onclick="show('home')">Назад</button>
 </div>
 
-<div id="visuals" class="page card">
-<h2>🎨 Visual Settings</h2>
-<div class="item">Синя тема <input type="checkbox" id="blue"></div>
-<div class="item">Неонове оформлення <input type="checkbox" id="neon" checked></div>
-<div class="item">Анімації меню <input type="checkbox" id="animations" checked></div>
-<div class="item">Компактне меню <input type="checkbox" id="compact"></div>
-<button onclick="saveVisuals()">Зберегти</button>
-<p id="visualStatus"></p>
-<button class="back" onclick="show('home')">Назад</button>
-</div>
+
 
 <div id="cosmetics" class="page card">
 <h2>⚔️ Cosmetics</h2>
