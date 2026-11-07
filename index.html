@@ -5,6 +5,44 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DreamVisuals 3.0</title>
+ :root {
+  --dv-blue: #168cff;
+  --dv-glow: #00c8ff;
+  --dv-bg: #070d1c;
+}
+
+body {
+  background: var(--dv-bg);
+  color: #eaf5ff;
+}
+
+button, .button {
+  background: linear-gradient(135deg, #087cff, #00c8ff);
+  color: white;
+  border: 1px solid #55caff;
+  border-radius: 12px;
+  box-shadow: 0 0 14px #168cff66;
+  transition: 0.2s;
+}
+
+button:hover, .button:hover {
+  box-shadow: 0 0 24px #00c8ff;
+  transform: translateY(-2px);
+}
+
+input, select {
+  background: #101d35;
+  color: white;
+  border: 1px solid var(--dv-blue);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+section, .card {
+  border: 1px solid #168cff55;
+  border-radius: 14px;
+  box-shadow: 0 0 12px #168cff22;
+}
 <style>
 *{box-sizing:border-box}
 body{
